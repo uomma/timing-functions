@@ -37,7 +37,7 @@ let tempo = 10;
 
 const clock = setInterval(function(){
        
-    if(tempo === 0){
+    if(tempo === 0){    
         clearInterval(clock);
         console.log('buon anno!!')
     }else{
@@ -52,16 +52,13 @@ const clock = setInterval(function(){
 
 
 const cpuNummbers = [];
-let randomNumbers = Math.floor(Math.random() * 100) + 1;
-
-for (let i = 0; cpuNummbers.length < 5; i++) {
+for(let i = 0; cpuNummbers.length < 5; i++){
+    const randomNumbers = Math.floor(Math.random() * 10) + 1;
+    if(!cpuNummbers.includes(randomNumbers)){
+        cpuNummbers.push(randomNumbers);
+    }
+    console.log(randomNumbers ) 
 }
+console.log('cpuNummbers =', cpuNummbers)
 
-if (!cpuNummbers.includes(randomNumbers)){
-    cpuNummbers.push(randomNumbers);
-
-
-} console.log({ randomNumbers })
-
-console.log(cpuNummbers)
-
+document.getElementById('pc').innerHTML = cpuNummbers

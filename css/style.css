@@ -1,7 +1,25 @@
-*{
-    margin: 0;
+* {
+    margin: 0 auto;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{background-color: green;}
+body {
+    background-color: green;
+    
+}
+
+.CPU {
+    width: 80px;
+    height: 80px;
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pc {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
