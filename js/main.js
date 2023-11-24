@@ -2,10 +2,10 @@
 
 
 /* function hello(){
-   alert('ti sto salutando') 
+   alert('ti sto salutando')
 } */
 //setTimeout(hello, 4000);
-/* 
+/*
 
 function bo() {
     console.log('non lo so')
@@ -31,6 +31,7 @@ setTimeout(function(){
 alert('è pronta')
 }, seconds*1000); */
 
+/********************************
 //COUNTDOWN OTTIMIZZATO
 let tempo = 10;
 
@@ -43,4 +44,24 @@ const clock = setInterval(function(){
         console.log(tempo);
         tempo--;
     }
-},  1000);
+},  1000); 
+***********************************/
+
+
+//visualizzare in pagina 5 numeri casuali
+
+
+const cpuNummbers = [];
+let randomNumbers = Math.floor(Math.random() * 100) + 1;
+
+for (let i = 0; cpuNummbers.length < 5; i++) {
+}
+
+if (!cpuNummbers.includes(randomNumbers)){
+    cpuNummbers.push(randomNumbers);
+
+
+} console.log({ randomNumbers })
+
+console.log(cpuNummbers)
+
