@@ -10,16 +10,23 @@ body {
 }
 
 .CPU {
-    width: 80px;
-    height: 80px;
+    width: 400;
+    height: 400px;
     background-color: bisque;
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
-.pc {
+.box {
+    width: 25px;
+    height: 25px;
     display: flex;
     justify-content: center;
     align-content: center;
+}
+
+.hide{
+    display: none;
 }
