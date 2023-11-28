@@ -45,141 +45,6 @@ const clock = setInterval(function(){
         tempo--;
     }
 },  1000); 
-***********************************/
-
-
-////visualizzare in pagina 5 numeri casuali:
-//creazione numeri casuali
-//stampo i numeri in pagina
-
-
-
-function game() {
-    //salvo elemento html nella costante htmlNumbers
-    const htmlNumbers = document.getElementById('pc');
-    console.log(htmlNumbers);
-
-
-    let cpuNummbers = [];
-    let i = 0;
-
-    while (cpuNummbers.length < 5) {
-        const randomNumbers = Math.floor(Math.random() * 10) + 1;
-        if (!cpuNummbers.includes(randomNumbers)) {
-            cpuNummbers.push(randomNumbers);
-            i++;
-        }
-    } console.log('cpuNummbers =', cpuNummbers)
-    htmlNumbers.innerHTML = cpuNummbers;
-
-    //da li parte un timer di 30 sec,dopo 30sec i numeri scompaiono
-    let time = 3
-    const clock = setTimeout(function timer() {
-        while (time !== 0) {
-            time--
-            console.log(time);
-            if (time === 0) {
-                htmlNumbers.classList.add('hide');
-                clearTimeout(clock);
-                console.log('timer expired');
-
-            }
-        }
-
-        //chiedo al user di inserire i numeri che ha visto
-        let archive = [];
-        while (archive.length < 5) {
-            let memoria = Number(prompt('inserisci i numeri'));
-            archive.push(memoria);
-        }htmlNumbers.classList.remove('hide')
-        console.log(archive);
-
-        //stampo i numeri inseriti da user nel DOM
-        const userNumber= document.getElementById('user');
-        userNumber.innerHTML=archive;
-
-
-        function winOrLose(randomNumbers,memoria){
-            if (randomNumbers.includes(memoria)){
-                console.log('hai vinto')
-            }else{
-                console.log('hai perso');
-            }
-        }
-        winOrLose()
-    }, 3000);
-
-
-    
-    console.log(clock);
-
-}
-game()
-
-//utente deve inserire uno alla volta i numeri visualizzati
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /*
@@ -235,4 +100,88 @@ function human() {
 
 }
 human()
-*/
+***********************************/
+
+
+////visualizzare in pagina 5 numeri casuali:
+//creazione numeri casuali
+//stampo i numeri in pagina
+
+
+
+function game() {
+    //salvo elemento html nella costante htmlNumbers
+    const htmlNumbers = document.getElementById('pc');
+    console.log(htmlNumbers);
+
+
+    let cpuNummbers = [];
+    let i = 0;
+
+    while (cpuNummbers.length < 5) {
+        const randomNumbers = Math.floor(Math.random() * 10) + 1;
+        if (!cpuNummbers.includes(randomNumbers)) {
+            cpuNummbers.push(randomNumbers);
+            i++;
+        }
+    } console.log('cpuNummbers =', cpuNummbers)
+    htmlNumbers.innerHTML = cpuNummbers;
+
+
+
+    //da li parte un timer di 30 sec,dopo 30sec i numeri scompaiono
+    let time = 3
+    const clock = setTimeout(function timer() {
+        while (time !== 0) {
+            htmlNumbers.classList.add('hide');
+            time--;
+            console.log({ time });
+            if (time === 0) {
+
+                clearTimeout(clock);
+                console.log('timer expired');
+            }
+        }
+
+        //chiedo al user di inserire i numeri che ha visto
+
+    }, 3000);
+    const domanda = setTimeout(function () {
+        let archive = [];
+        let results = [];
+        while (archive.length < 5) {
+            let memoria = Number(prompt('inserisci i numeri'));
+            archive.push(memoria);
+            htmlNumbers.classList.remove('hide');
+            clearTimeout(domanda)
+
+
+            //mi creo un array result dove pusho numeri  se linput utente 
+            //è uguale all output cpu 
+
+
+            if (cpuNummbers.includes(memoria) && !results.includes(memoria) ) {
+                results.push(memoria)
+            } console.log({ results })
+
+            if (results.length > 0) {
+                document.getElementById('results').innerHTML = `hai indovinato ${results.length} numeri e il numero indovinato è: ${results}`;
+
+            } else {
+                document.getElementById('results').innerHTML = 'fai pena!'
+            }
+
+        }
+        const userNumber = document.getElementById('user');
+        userNumber.innerHTML = archive;
+        console.log(archive);
+
+
+    }, 4000);
+
+}
+game()
+
+
+
+
